@@ -27,7 +27,9 @@ export class HelperApiClient {
   static setApiClientConfig(config: ApiClientConfig | undefined) {
     return config || {
       auth: {
-        useAccessToken: true
+        useAccessToken: true,
+        clientId: process.env.META_APP_ID,
+        clientSecret: process.env.META_APP_SECRET,
       }
     };
   }

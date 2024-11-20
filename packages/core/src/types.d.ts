@@ -9,4 +9,12 @@ export interface ApiClientConfig {
 
 export type ApiClientAuthOptions = {
   useAccessToken?: boolean;
+  clientId?: string;
+  clientSecret?: string;
+  grantType?: string;
+}
+
+export type OAuthBodyResponse = {
+  access_token: string;
+  token_type: string;
 }

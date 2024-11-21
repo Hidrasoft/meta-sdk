@@ -18,9 +18,9 @@ export class MetaApiClient {
    * Creates an instance of MetaApiClient with an access token.
    * @param accessToken - The access token used for authenticating API requests.
    */
-  constructor(accessToken?: string, config?: ApiClientConfig) {
+  constructor(config?: ApiClientConfig) {
     this.config = HelperApiClient.setApiClientConfig(config);
-    this.accessToken = HelperApiClient.setAccessToken(accessToken);
+    this.accessToken = HelperApiClient.setAccessToken(config?.auth.accessToken);
     this.apiUrl = `${this.apiHost}/${this.apiVersion}`;  // Meta Graph API base URL
   }
 
@@ -89,6 +89,13 @@ export class MetaApiClient {
    */
   public delete<T>(endpoint: string, params: Record<string, any> = {}): Promise<ApiResponse<T>> {
     return this.request(HttpMethods.DELETE, endpoint, params);
+  }
+
+  /**
+   * Get configuration options
+   */
+  public get configOptions(): ApiClientConfig {
+    return this.config;
   }
 
   /**

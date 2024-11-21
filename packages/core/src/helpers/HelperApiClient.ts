@@ -41,7 +41,7 @@ export class HelperApiClient {
    * @param {ApiClientConfig} config object config set params
    */
   static setRequestParams(url: URL, params: Record<string, any> = {}, config: ApiClientConfig): URL {
-    if(config.auth.useAccessToken) {
+    if(config.useAccessToken) {
       url.searchParams.set('access_token', params?.accessToken);
     }
 

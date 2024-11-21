@@ -4,11 +4,12 @@ export interface ApiResponse<T> {
 }
 
 export interface ApiClientConfig {
+  useAccessToken?: boolean;
   auth: ApiClientAuthOptions
 }
 
 export type ApiClientAuthOptions = {
-  useAccessToken?: boolean;
+  accessToken?: string;
   clientId?: string;
   clientSecret?: string;
   grantType?: string;

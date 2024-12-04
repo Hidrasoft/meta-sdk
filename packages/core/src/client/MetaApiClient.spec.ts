@@ -1,8 +1,9 @@
 import { MetaApiClient } from './MetaApiClient';
 
-const metaApliClient = new MetaApiClient("12345", {
+const metaApiClient = new MetaApiClient({
+  useAccessToken: false,
   auth: {
-    useAccessToken: false
+    accessToken: "12345"
   }
 });
 
@@ -20,7 +21,7 @@ describe('[ endpoints / API graph meta ]', () => {
     };
 
     // Act
-    const { data: result } = await metaApliClient.get("/facebook/picture?redirect=false");
+    const { data: result } = await metaApiClient.get("/facebook/picture?redirect=false");
 
     // Assert
     expect(result).toEqual(expected);
